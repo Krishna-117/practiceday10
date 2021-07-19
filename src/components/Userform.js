@@ -8,11 +8,7 @@ export default function Userform() {
     }); //hook -function
     const handleEvent = function (event) {
         console.log(event);
-        setUserform({ ...userform, firstname: event.target.value })
-    }
-    const handleEventForAge = function (event) {
-        console.log(event);
-        setUserform({ ...userform, age: event.target.value })
+        setUserform({ ...userform, [event.target.name]: event.target.value })
     }
     const save = function (event) {
         console.log(userform);
@@ -20,8 +16,8 @@ export default function Userform() {
     return (
         <div>
             <h3>Create User</h3>
-            <input value={userform.firstname} onChange={handleEvent}></input>
-            <input value={userform.age} onChange={handleEventForAge}></input>
+            <input name="firstname" value={userform.firstname} onChange={handleEvent}></input>
+            <input name="age"value={userform.age} onChange={handleEvent}></input>
             <button onClick={save}>Save</button>
         </div>
     )
