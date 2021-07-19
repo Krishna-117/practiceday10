@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "name": "Krishna",
+      "location": "Gorakhpur",
+      "id": 1
+    },
+    {
+      "name": "Krishna",
+      "location": "Gorakhpur",
+      "id": 2
+    },
+    {
+      "firstname": "Ram",
+      "age": "20",
+      "id": 3
+    },
+    {
+      "firstname": "Ram",
+      "age": "20",
+      "id": 4
+    },
+    {
+      "firstname": "Ram",
+      "age": "20",
+      "id": 5
+    }
+  ]
+}
