@@ -9,9 +9,7 @@ export default function UserList() {
         }
         console.log("called................")
         const promise = axios.get("http://localhost:4200/users");
-        promise.then(function (response) {
-            setUsers(response.data)
-        })
+        promise.then((response) =>setUsers(response.data))
     })
     return (
 
