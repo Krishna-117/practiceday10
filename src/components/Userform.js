@@ -6,7 +6,7 @@ import { Dropdown } from 'react-bootstrap';
 import { DropdownButton } from 'react-bootstrap';
 export default function UserForm() {
 
-    const [userForm, setUserform] = useState({
+    const [userForm, setUserform] = useState({  //statefull
         firstname: "",
         age: "",
         joiningDate: "",
