@@ -1,14 +1,22 @@
-import { useState } from "react"
+import axios from 'axios';
+import { useEffect, useState } from "react"
 
 export default function Userlist(){
     const[users,setUsers] =useState([]);
+    useEffect(function(){
+        console.log('called...............');
+        const promise = axios.get("http://localhost:4200/users");
+        promise.then(function(response){
+            console.log(response.data);
+        })
+    })
     return (
         <div>
-            <table className=' table table-bordered table-hover table-responsive'>
+            <table className=' table table-bordered table-hover table-responsive table-striped'>
                 <thead>
                     <tr>
-                        <td>First Name</td>
-                        <td>Age</td>
+                        <th>First Name</th>
+                        <th>Age</th>
                     </tr>
                 </thead>
                 <tbody>
