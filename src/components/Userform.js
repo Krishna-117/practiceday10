@@ -1,27 +1,33 @@
-import axios from "axios";
-import {useState} from "react";
+import { useState }
+    from 'react'
+import axios from "axios"
+export default function UserForm() {
 
-export default function UserForm(){
-    const[userform, setUserform]=useState({firstname:"Ram",age:"20"}); // hook function
-    
-    const handleEvent =function(event){
-        console.log(event);
-        setUserform({...userform, [event.target.name]:event.target.value})
+    const [userForm, setUserform] = useState({ 
+        firstname: "Ram", 
+        age: "20",
+        joiningDate: "" }) //hook function
+
+    const handleEvent = function (event) {
+        setUserform({ ...userForm,[event.target.name]: event.target.value });
     }
-    
-    const save = function(event){
-        console.log(userform);
-        const promise= axios.post("http://localhost:4200/users", userform);
-        promise.then(function(response){
-            console.log(response);
-        })
+    const save = function (event) {
+      console.log("User first name: "+userForm.firstname);
+      console.log("User age: "+userForm.age);
+      const promise=axios.post("http://localhost:4200/users", userForm);
+      promise.then(function(response){
+          console.log(response);
+      })
+
     }
     return (
         <div>
-            <h3>Create User</h3>
-            <input name='firstname' value={userform.firstname} onChange={handleEvent} />
-            <input  name='age' value={userform.age} onChange={handleEvent} />
+            <h3>Create User form</h3>
+            <input placeholder='First Name' name='firstname'  value={userForm.firstname} onChange={handleEvent}>
+            </input>
+            <input placeholder='Age' name='age'value={userForm.age} onChange={handleEvent}></input>
+            joining date: <input name='joiningDate'type="date"value={userForm.joiningDate}  onChange={handleEvent}></input>
             <button onClick={save}>Save</button>
         </div>
-    )
+    );
 }
