@@ -1,41 +1,64 @@
 {
   "users": [
     {
-      "name": "Krishna",
-      "location": "Gorakhpur",
-      "id": 1
-    },
-    {
-      "name": "Krishna",
-      "location": "Gorakhpur",
-      "id": 2
-    },
-    {
-      "firstname": "Ram",
+      "firstname": "RamJi",
       "age": "20",
-      "id": 3
+      "joiningDate": "2021-07-20",
+      "id": 10
     },
     {
-      "firstname": "Ram",
-      "age": "20",
-      "id": 4
-    },
-    {
-      "firstname": "Ram",
-      "age": "20",
-      "id": 5
-    },
-    {
-      "firstname": "Ram",
-      "age": "20",
+      "firstname": "Krishna",
+      "age": "23",
       "joiningDate": "2021-07-02",
-      "id": 6
+      "skill": "JS",
+      "id": 13
     },
     {
-      "firstname": "Rama",
-      "age": "21",
-      "joiningDate": "",
-      "id": 7
+      "firstname": "Krishna",
+      "age": "23",
+      "joiningDate": "2021-07-15",
+      "skill": "CSS",
+      "id": 14
+    },
+    {
+      "firstname": "Akash",
+      "age": "24",
+      "joiningDate": "2021-07-15",
+      "skill": "JS",
+      "id": 15
+    },
+    {
+      "firstname": "Krish",
+      "age": "22",
+      "joiningDate": "2021-07-21",
+      "skill": "CSS",
+      "id": 16
+    },
+    {
+      "firstname": "Abc",
+      "age": "23",
+      "joiningDate": "2021-07-20",
+      "skill": "CSS",
+      "id": 17
+    },
+    {
+      "firstname": "Kris",
+      "age": "22",
+      "joiningDate": "2021-07-21",
+      "skill": "HTML",
+      "id": 18
+    },
+    {
+      "firstname": "Ramji",
+      "age": 20,
+      "joiningDate": "2021-07-15",
+      "skill": "CSS",
+      "id": 19
+    },
+    {
+      "firstname": "Ram",
+      "age": 20,
+      "id": 20
     }
   ]
 }
