@@ -1,6 +1,12 @@
-export default function Header(){   //react component is a function
+//import Message from "./Message"
+export default function Header(){ //react component is a function
 
-    return (
-        <div>Header</div>
+    return(
+        <h3>Header</h3>
+        //<Message/>
     )
+
 }
+
+
+

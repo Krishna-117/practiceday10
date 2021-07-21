@@ -4,12 +4,7 @@ import Counter from "./Counter";
 
 export default function Userlist() {
     const [users, setUsers] = useState([]);
-    const [flags, setFlags] = useState(true);
     useEffect(() => {
-        // if (users.length !== -1) {
-        //     return;
-        // }
-        console.log('called......................');
         const promise = axios.get(process.env.REACT_APP_SERVER_URL);
         promise.then(response => setUsers(response.data))
     }, [])
@@ -24,21 +19,18 @@ export default function Userlist() {
         })
     }
     const sortByAge = () => {
-        setFlags(!flags)
-        users.sort((user1, user2) => flags ? user1.age - user2.age : user2.age - user1.age);
-        const users1 = [...users]; //time vs space complexity
-        setUsers(users1);
+        users.sort((user1, user2)=> user1.age - user2.age);
+        setUsers([...users]);
     }
-
     return (
         <div>
             {/* <Counter count={users.length}></Counter> */}
             <table className=' table table-compact table-bordered table-hover table-responsive table-striped'>
                 <thead>
                     <tr><th>First name</th>
-                        <th onClick={sortByAge.bind()}>Age</th>
+                        <th onClick={sortByAge}>Age</th>
                         <th>Joining Date</th>
-                        <th>??</th></tr>
+                        <th></th></tr>
                 </thead>
                 <tbody>
                     {users.map((user, index) => <tr key={user.id}>

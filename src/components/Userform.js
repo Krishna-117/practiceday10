@@ -14,14 +14,12 @@ export default function Userform() { //stateful
     }
 
     const save = function (event) {
-        console.log(userform);
         const promise = axios.post(process.env.REACT_APP_SERVER_URL, userform);
         promise.then(function (response) {
-            console.log(response);
-            setMessage({ ...message, type: 'success', text: "Record was saved" })
+            setMessage({...message, type: 'success', text: "Record was saved"})
         });
         promise.catch(function (error) {
-            setMessage({ ...message, type: 'error', text: "Record was not saved" });
+            setMessage({...message, type: 'error', text: "Record was not saved" });
         })
     }
     const handleSelection = function (event) {
@@ -39,7 +37,7 @@ export default function Userform() { //stateful
             <div className="form-group">
                 <input type='date' className="form-control" name='joiningDate' value={userform.joiningDate} onChange={handleEvent}></input>
             </div>
-            <select value='default' className='dropdown' name='skill' onChange={handleSelection} >
+            <select value='default'  className='dropdown' name='skill' onChange={handleSelection} >
                 <option value='default'>Select the skill</option>
                 <option value='HTML'>HTML</option>
                 <option value='CSS'>CSS</option>
