@@ -9,13 +9,6 @@
     {
       "firstname": "Krishna",
       "age": "23",
-      "joiningDate": "2021-07-02",
-      "skill": "JS",
-      "id": 13
-    },
-    {
-      "firstname": "Krishna",
-      "age": "23",
       "joiningDate": "2021-07-15",
       "skill": "CSS",
       "id": 14
@@ -58,7 +51,22 @@
     {
       "firstname": "Ram",
       "age": 20,
-      "id": 20
+      "skill": "JavaScript",
+      "joiningDate": "2021-07-22",
+      "id": 22
+    },
+    {
+      "firstname": "Ramesh",
+      "age": "201",
+      "skill": "HTML",
+      "joiningDate": "2021-07-15",
+      "id": 23
     }
+  ],
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React"
   ]
 }

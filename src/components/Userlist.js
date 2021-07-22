@@ -1,25 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import Counter from "./Counter";
-
+import { updateUserList, deleteUserFromUI } from "../service";
 export default function Userlist() {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        const promise = axios.get(process.env.REACT_APP_SERVER_URL);
-        promise.then(response => setUsers(response.data))
+        updateUserList(response => setUsers(response.data));
     }, [])
-    const deleteUser = function () {
-        // confirm("are you sure");
-        const promise = axios.delete(process.env.REACT_APP_SERVER_URL + this);
-        promise.then(response => {
-            //remove delete record from list
-            users.splice(arguments[0], 1);
-            const users1 = [...users]; //time vs space complexity
-            setUsers(users1);
-        })
-    }
+    function deleteUser(id, index) {
+    deleteUserFromUI(function(response) {
+        console.log("deleted");
+        //updateList();
+        users.splice(index, 1);
+        const newUsers = [...users];
+        setUsers(newUsers);
+    })
+}
     const sortByAge = () => {
-        users.sort((user1, user2)=> user1.age - user2.age);
+        users.sort((user1, user2) => user1.age - user2.age);
         setUsers([...users]);
     }
     return (
@@ -37,7 +34,7 @@ export default function Userlist() {
                         <td>{user.firstname}</td>
                         <td>{user.age}</td>
                         <td>{user.joiningDate}</td>
-                        <td><button className='btn btn-danger' onClick={deleteUser.bind(user.id, index)}>Delete</button></td>
+                        <td><button className='btn btn-danger' onClick={deleteUserFromUI.bind(user.id, index)}>Delete</button></td>
                     </tr>)}
                 </tbody>
             </table>

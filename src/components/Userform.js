@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import Button from 'react-bootstrap/Button';
+import { getAllSkills } from "../service";
+import { saveDataInDB } from '../service';
 import Messages from "./Message";
 export default function Userform() { //stateful
     const [userform, setUserform] = useState({
@@ -14,17 +16,22 @@ export default function Userform() { //stateful
         setUserform({ ...userform, [event.target.name]: event.target.value })
     }
     useEffect(function () {
-        axios.get(process.env.REACT_APP_SKILLS_URL)
-            .then(response => setSkills(response.data));
+            getAllSkills(response => setSkills(response.data));
     }, []);
-    const save = function (event) {
-        const promise = axios.post(process.env.REACT_APP_SERVER_URL, userform);
-        promise.then(function (response) {
-            setMessage({ ...message, type: 'success', text: "Record was saved" })
-        });
-        promise.catch(function (error) {
-            setMessage({ ...message, type: 'error', text: "Record was not saved" });
-        })
+    const save =function(event) {
+        console.log("User first name: " + userform.firstname);
+        console.log("User age: " + userform.age);
+        // const promise = axios.post(process.env.REACT_APP_SERVER_URL, userform);
+        // promise.then(function (response) {
+        //     setMessage({ ...message, type: 'success', text: "Record was saved" })
+        // });
+        // promise.catch(function (error) {
+        //     setMessage({ ...message, type: 'error', text: "Record was not saved" });
+        // })
+        saveDataInDB(userform,
+            (response)=>( setMessage({ ...message, type: 'Success', text: "Record was saved" })),
+            (error)=>( setMessage({ ...message, type: { error }, text: "Record was not saved" }))
+        );
     }
     const handleSelection = function (event) {
         setUserform({ ...userform, [event.target.name]: event.target.value })
@@ -43,7 +50,7 @@ export default function Userform() { //stateful
             </div>
             <select className='dropdown' name='skill' onChange={handleSelection} >
                 <option defaultValue >Select the skill</option>
-                {skills.map((skill, index) => <option value={skill}>{skill}</option>)}
+                {skills.map((skill, index) => <option value={skill} key={skill}>{skill}</option>)}
             </select>
             <Button className="form-control" onClick={save}>Save</Button>
         </div >
